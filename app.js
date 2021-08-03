@@ -1,6 +1,8 @@
 const { request, response } = require("express")
 const express = require("express")
 const mongoose = require("mongoose")
+const postModel = require("./schema")
+
 
 const app = express()
 const port = 9000
@@ -17,6 +19,28 @@ mongoose.connection.on("connected", () => console.log("Database Connected"))
 mongoose.connection.on("error", (error) => console.log(`Error: ${error.message}`))
 
 
+app.get("/add", (request, response) => {
+    postModel.create({ title: "first data" }, (error, data) => {
+        if (error) {
+            response.send(error.message)
+        }
+        else {
+            response.send("Success")
+        }
+    })
+})
+
+
+
+
+
+
+
+
+
+
+
+
 // Middleware
 app.use("/contact", (request, response, next) => {
     const abc = true;
@@ -29,8 +53,6 @@ app.use("/contact", (request, response, next) => {
 })
 
 
-
-
 // Simple get
 app.get("/user", (request, response) => {
     response.send("Home Page")
@@ -39,6 +61,9 @@ app.get("/user", (request, response) => {
 app.get("/contact", (request, response) => {
     response.send("Contact Page")
 })
+
+
+
 
 
 
