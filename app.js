@@ -4,7 +4,7 @@ const app = express()
 const port = 9000
 
 // Middleware
-app.use("/user", (request, response, next) => {
+app.use("/contact", (request, response, next) => {
     const abc = true;
     if (abc) {
         next()
@@ -14,12 +14,14 @@ app.use("/user", (request, response, next) => {
     }
 })
 
-
 // Simple get
 app.get("/user", (request, response) => {
     response.send("Home Page")
 })
 
+app.get("/contact", (request, response) => {
+    response.send("Contact Page")
+})
 
 
 app.listen(port, console.log(`My server is running on port ${port}`))
