@@ -17,16 +17,19 @@ mongoose.connection.on("connected", () => console.log("Database Connected"))
 mongoose.connection.on("error", (error) => console.log(`Error: ${error.message}`))
 
 
-// // Middleware
-// app.use("/contact", (request, response, next) => {
-//     const abc = true;
-//     if (abc) {
-//         next()
-//     }
-//     else {
-//         response.send("UNauthorized")
-//     }
-// })
+// Middleware
+app.use("/contact", (request, response, next) => {
+    const abc = true;
+    if (abc) {
+        next()
+    }
+    else {
+        response.send("UNauthorized")
+    }
+})
+
+
+
 
 // Simple get
 app.get("/user", (request, response) => {
