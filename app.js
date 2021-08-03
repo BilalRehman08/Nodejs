@@ -25,6 +25,7 @@ app.get("/add", (request, response) => {
             response.send(error.message)
         }
         else {
+            response.send(data)
             response.send("Success")
         }
     })
