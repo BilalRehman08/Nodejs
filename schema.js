@@ -8,8 +8,7 @@ const postSchema = new mongoose.Schema(
     }
 )
 
-const postModel = mongoose.model('third', postSchema)
-
+const postModel = mongoose.model('second', postSchema)
 
 
 module.exports = postModel
